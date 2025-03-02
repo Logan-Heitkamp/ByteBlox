@@ -22,44 +22,98 @@ class DraggableNumberScreen extends StatefulWidget {
 
 
 
+List<Offset> setupPositions(List<String> problem) {
+    List<Offset> positions = [];
+    
+    for (int i = 0; i < problem.length; i ++) {
+      positions.add(Offset((200 + 100 * i).toDouble(), 500));
+    }
+    return positions;
+}
+
+List<bool> setupCorrect(List<String> problem) {
+  List<bool> correct = [];
+  for (var _ in problem) {
+    correct.add(false);
+  }
+
+  return correct;
+}
+
+List<String> setupInputs(List<String> problem) {
+  List<String> inputs = [];
+  for (var _ in problem) {
+    inputs.add("Drop Here");
+  }
+
+  return inputs;
+
+}
+
+List<dynamic> setupMain() {
+  List<String> problem = readFile(File('lib/print.txt'));
+
+  String question = problem[0];
+  problem.removeAt(0);
+  List<String> options = problem;
+
+  List<Offset> positions = setupPositions(problem);
+  List<Offset> originalPositions = setupPositions(problem);
+  List<bool> correct = setupCorrect(problem);
+  int numBoxes = problem.length;
+  List<String> inputs = setupInputs(problem);
+  List<String> answers = List<String>.from(options);
+
+  print([question, positions, originalPositions, correct, options, numBoxes, inputs, answers].length);
+  print([question, positions, originalPositions, correct, options, numBoxes, inputs, answers]);
+
+  return [question, positions, originalPositions, correct, options, numBoxes, inputs, answers];
+}
+
+
 class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
-  List<Offset> positions = [Offset(300, 400), Offset(400, 400), Offset(500, 400)];
-  List<Offset> original_positions = [Offset(300, 400), Offset(400, 400), Offset(500, 400)];
-  List<String> numbers = ["2", "4", "6"];
-  List<String> incorrect_numbers = ["2", "4"];
-  String correctAnswer = "6";
-  String? selectedNumber;
-  bool correct = false;
-  String correctAnswer2 = "6";
-  String? selectedNumber2;
-  bool correct2 = false;
 
   // get file contents
-  List<String> problem = readFile(File('lib/print.txt'));
+  List<dynamic> values = setupMain();
+
   
+
+  late String question = values[0];
+  late List<Offset> positions = values[1];
+  late List<Offset> original_positions = values[2];
+  late List<bool> correct = values[3];
+  late List<String> options = values[4];
+  late int numBoxes = values[5];
+  late List<dynamic> inputs = values[6];
+  late List<String> answers = values[7];
+
   void place(int index) {
-    numbers[index] = " ";
+    options[index] = "";
   }
 
   void replaceOption(int index, String value) {
-    numbers[index] = value;
+    options[index] = value;
     positions[index] = original_positions[index];
   }
 
   void submitButton() {
-    if (selectedNumber2 == correctAnswer2) {
-      correct2 = true;
+    for (int i = 0; i < numBoxes; i++) {
+      if (inputs[i] == answers[i]) {
+        correct[i] = true;
+      }
+      else {
+        replaceOption(i, answers[i]);
+      }
     }
-    else {
-      replaceOption(2, "6");
-    }
-    
-    print(numbers);
-    for (var entry in incorrect_numbers.asMap().entries) {
-      int index = entry.key;
-      String item = entry.value;
-      replaceOption(index, item);
-    }
+    print(answers);
+    print(options);
+    print(inputs);
+    print(correct);
+    // for (var entry in incorrect_numbers.asMap().entries) {
+    //   int index = entry.key;
+    //   String item = entry.value;
+    //   replaceOption(index, item);
+    // }
     
   }
 
@@ -70,81 +124,56 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
       appBar: AppBar(title: Text("Drag the Correct Answer")),
       body: Stack(
         children: [
+
           // Create question
           Positioned(
             left: 100,
             top: 50,
             child: Text(
-              problem[0],
+              question,
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
-          Positioned(
-            left: 150,
+
+          ...List.generate(numBoxes, (index) {
+          return Positioned(
+            left: 50 + 210 * index.toDouble(),
             top: 150,
             child: DragTarget<String>(
               onAccept: (value) {
                 setState(() {
-                  selectedNumber = value;
-                });
-              },
-              builder: (context, candidateData, rejectedData) {
-                return Container(
-                  width: 100,
-                  height: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
-                    color: selectedNumber == correctAnswer ? Colors.green : Colors.red,
-                  ),
-                  child: Text(
-                    selectedNumber?.toString() ?? "Drop here",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                );
-              },
-            ),
-          ),
-          Positioned(
-            left: 350,
-            top: 150,
-            child: DragTarget<String>(
-              onAccept: (value) {
-                setState(() {
-                  if (correct2) {
-                    replaceOption(numbers.indexOf(value), value);
+                  if (correct[index]) {
+                    replaceOption(options.indexOf(value), value);
                   }
                   else {
-                  selectedNumber2 = value;
-                    if (value == "2") {
-                      place(0);
-                    }
-                    if (value == "4") {
-                      place(1);
-                    }
-                    if (value == "6") {
-                      place(2);
+                    inputs[index] = value;
+                    for (var option in options) {
+                      if (value == option) {
+                        place(answers.indexOf(option));
+                      }
                     }
                   }
                 });
               },
               builder: (context, candidateData, rejectedData) {
                 return Container(
-                  width: 100,
+                  width: 200,
                   height: 50,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
-                    color: selectedNumber2 == correctAnswer2 || correct2 ? Colors.green : Colors.red,
+                    color: correct[index] ? Colors.green : Colors.red,
                   ),
                   child: Text(
-                    correct2 ? correctAnswer2 : selectedNumber2?.toString() ?? "Drop here2",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    correct[index] ? answers[index] : inputs[index].toString(),
+                    style: TextStyle(fontSize: double.tryParse(inputs[index]) != null ? 36 : 24, fontWeight: FontWeight.bold, height: 1),
                   ),
                 );
               },
             ),
-          ),
+          );
+          }),
+
           Positioned(
             left: 500,
             top: 500,
@@ -157,13 +186,13 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
             child: Text('BUTTON', style: TextStyle(fontSize: 100),),
             ),
           ),
-          
-          ...List.generate(numbers.length, (index) {
+
+          ...List.generate(answers.length, (index) {
             return Positioned(
               left: positions[index].dx,
               top: positions[index].dy,
               child: DraggableNumber(
-                number: numbers[index],
+                number: options[index],
                 onDragEnd: (details) {
                   setState(() {
                     positions[index] = details.offset + Offset(0, -50);
@@ -172,6 +201,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
               ),
             );
           }),
+
         ],
       ),
     );
