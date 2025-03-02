@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.1explain.txt';
             file = 'lib/1.1';
             explain = readExplination(File(explination));
           },
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.2explain.txt';
             file = 'lib/1.2';
             explain = readExplination(File(explination));
           },
@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.3explain.txt';
             file = 'lib/1.3';
             explain = readExplination(File(explination));
           },
@@ -91,7 +91,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.4explain.txt';
             file = 'lib/1.4';
             explain = readExplination(File(explination));
           },
@@ -105,7 +105,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.5explain.txt';
             file = 'lib/1.5';
             explain = readExplination(File(explination));
           },
@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/1.6explain.txt';
             file = 'lib/1.6';
             explain = readExplination(File(explination));
           },
@@ -140,7 +140,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.1explain.txt';
             file = 'lib/2.1';
             explain = readExplination(File(explination));
           },
@@ -154,7 +154,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.2explain.txt';
             file = 'lib/2.2';
             explain = readExplination(File(explination));
           },
@@ -168,7 +168,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.3explain.txt';
             file = 'lib/2.3';
             explain = readExplination(File(explination));
           },
@@ -182,7 +182,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.4explain.txt';
             file = 'lib/2.4';
             explain = readExplination(File(explination));
           },
@@ -196,7 +196,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.5explain.txt';
             file = 'lib/2.5';
             explain = readExplination(File(explination));
           },
@@ -210,7 +210,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/2.6explain.txt';
             file = 'lib/2.6';
             explain = readExplination(File(explination));
           },
@@ -231,7 +231,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/3.1explain.txt';
             file = 'lib/3.1';
             explain = readExplination(File(explination));
           },
@@ -245,7 +245,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/3.2explain.txt';
             file = 'lib/3.2';
             explain = readExplination(File(explination));
           },
@@ -259,7 +259,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
-            explination = 'lib/idk';
+            explination = 'lib/3.3explain.txt';
             file = 'lib/3.3';
             explain = readExplination(File(explination));
           },
