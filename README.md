@@ -1,4 +1,4 @@
-##ByteBlox
+# ByteBlox
 
 This project was created to allow beginners quickly complete lessons and become familiar with a new programming language.
 
