@@ -1,6 +1,10 @@
-Come along and learn the basics of Python.
-Just select the lesson you want,
-read over the documentation,
-and complete a short activity to check your understanding
+#ByteBlox
 
-We can't wait to grow this app to expand to many more languages in the future and we hope you will join us
+This project was created to allow beginners quickly complete lessons and become familiar with a new programming language.
+
+## Installation
+
+You shuold already have Dart and Flutter installed. Once you do, copy the lib folder into your lib folder to run.
+
+Feel free to modify any section to better fit your needs!
+Thank you!
