@@ -1,16 +1,6 @@
-# first_app
+Come along and learn the basics of Python.
+Just select the lesson you want,
+read over the documentation,
+and complete a short activity to check your understanding
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+We can't wait to grow this app to expand to many more languages in the future and we hope you will join us
