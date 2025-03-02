@@ -36,14 +36,14 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned(
-          left: 100,
+          left: 20,
           top: 0,
           child: Text('Introduction', style: TextStyle(
               fontSize: 24.0,),
         ),
         ),
           Positioned(
-          left: 100,
+          left: 20,
           top: 50,
           child: ElevatedButton(
           onPressed: () {
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
+          left: 20,
           top: 100,
         child: ElevatedButton(
           onPressed: () {
@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
+          left: 20,
           top: 150,
         child: ElevatedButton(
           onPressed: () {
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
+          left: 20,
           top: 200,
         child: ElevatedButton(
           onPressed: () {
@@ -99,7 +99,7 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
+          left: 20,
           top: 250,
         child: ElevatedButton(
           onPressed: () {
@@ -113,7 +113,7 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
+          left: 20,
           top: 300,
         child: ElevatedButton(
           onPressed: () {
@@ -127,15 +127,15 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 350,
+          left: 300,
+          top: 0,
           child: Text('If Statements and Loops', style: TextStyle(
               fontSize: 24.0,),
         ),
         ),
         Positioned(
-          left: 100,
-          top: 400,
+          left: 300,
+          top: 50,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -148,8 +148,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 450,
+          left: 300,
+          top: 100,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -162,8 +162,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 500,
+          left: 300,
+          top: 150,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -176,8 +176,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 550,
+          left: 300,
+          top: 200,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -190,8 +190,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 600,
+          left: 300,
+          top: 250,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -204,8 +204,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 650,
+          left: 300,
+          top: 300,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -218,15 +218,15 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 700,
+          left: 620,
+          top: 0,
           child: Text('Lists', style: TextStyle(
               fontSize: 24.0,),
         ),
         ),
         Positioned(
-          left: 100,
-          top: 750,
+          left: 620,
+          top: 50,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -239,8 +239,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 800,
+          left: 620,
+          top: 100,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
@@ -253,8 +253,8 @@ class HomeScreen extends StatelessWidget {
         ),
         ),
         Positioned(
-          left: 100,
-          top: 850,
+          left: 620,
+          top: 150,
         child: ElevatedButton(
           onPressed: () {
             // Navigate to the second screen when the button is pressed
