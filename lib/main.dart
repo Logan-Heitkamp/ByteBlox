@@ -29,11 +29,11 @@ class DraggableNumberApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  double column1X = 100;
+  double column1X = 25;
   double column1Y = 50;
-  double column2X = 720;
+  double column2X = 525;
   double column2Y = 50;
-  double column3X = 1350;
+  double column3X = 1075;
   double column3Y = 50;
 
   double font_size = 36;
@@ -415,13 +415,13 @@ class ExplinationPage extends StatelessWidget {
               if (text.startsWith("#")) {
                 text = text.substring(1);
                 return Container(
-                  padding: EdgeInsets.only(left: 400),
+                  padding: EdgeInsets.only(left: 200, right: 200),
                   child: Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 );
               }
               else {
                 return Container(
-                  padding: EdgeInsets.only(left: 400),
+                  padding: EdgeInsets.only(left: 200, right: 200),
                   child: Text(text, style:TextStyle(fontSize: 18)),
                 );
               }
@@ -456,11 +456,11 @@ List<Offset> setupPositions(List<String> problem) {
   int currentX = 50;
 
   for (int i = 0; i < problem.length; i++) {
-    positions.add(Offset(currentX.toDouble(), 700));
+    positions.add(Offset(currentX.toDouble(), 550));
     currentX += problem[i].length * 13 + 10;
   }
-
-  double offset = ((1825 - currentX + 50) / 2);
+  print(currentX);
+  double offset = ((1430 - currentX + 50) / 2);
   for (int i = 0; i < positions.length; i++) {
     positions[i] += Offset(offset, 0);
   }
@@ -491,26 +491,23 @@ List<dynamic> setupMain() {
   String question = problem[0];
   problem.removeAt(0);
 
-  String isHorizontal = problem[0];
-  problem.removeAt(0);
-  if (isHorizontal == "true") {
+  if (problem[0] == "true") {
     horizontal = true;
   }
   else {
     horizontal = false;
   }
+  problem.removeAt(0);
 
-  List<String> options = List<String>.from(problem);
-  options.shuffle();
-  List<String>originalOptions = List<String>.from(options);
-  print(options);
 
+  List<String> options = problem;
+
+  List<Offset> positions = setupPositions(problem);
+  List<Offset> originalPositions = setupPositions(problem);
   List<bool> correct = setupCorrect(problem);
   int numBoxes = problem.length;
   List<String> inputs = setupInputs(problem);
-  List<String> answers = List<String>.from(problem);
-  List<Offset> positions = setupPositions(options);
-  List<Offset> originalPositions = List<Offset>.from(positions);
+  List<String> answers = List<String>.from(options);
 
   return [
     question,
@@ -521,7 +518,6 @@ List<dynamic> setupMain() {
     numBoxes,
     inputs,
     answers,
-    originalOptions,
   ];
 }
 
@@ -537,11 +533,8 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
   late int numBoxes = values[5];
   late List<dynamic> inputs = values[6];
   late List<String> answers = values[7];
-  late List<String> originalOptions = values[8];
   bool first = true;
   bool finished = false;
-
-  
 
   void place(int index) {
     options[index] = "";
@@ -553,9 +546,6 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
   }
 
   void submitButton() {
-    // print(options);
-    // print(inputs);
-    // print(answers);
     for (int i = 0; i < numBoxes; i++) {
       if (inputs[i] == answers[i]) {
         correct[i] = true;
@@ -563,7 +553,6 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
         replaceOption(i, answers[i]);
       }
     }
-    // print(options);
 
     if (first) {
       first = false;
@@ -572,23 +561,6 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
     if (!correct.contains(false)) {
       finished = true;
     }
-
-    List<String> other = [];
-    for (int i = 0; i < originalOptions.length; i++) {other.add("");}
-    for (String item in originalOptions) {
-      if (options.contains(item)) {
-        other[originalOptions.indexOf(item)] = item;
-        print(other);
-      }
-    }
-    options = List<String>.from(other);
-
-    for (String item in options) {
-      if (item == "") {
-        positions[options.indexOf(item)] = Offset(100000000, 1000000);
-      }
-    }
-
   }
 
   @override
@@ -606,7 +578,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
               child: Text(
                 question,
                 style: TextStyle(
-                  fontSize: 48,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
                 ),
@@ -618,12 +590,12 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
             return Positioned(
               left:
                   horizontal
-                      ? ((1825 -
+                      ? ((1430 -
                                   (answers.length * 200 +
                                       (answers.length - 1) * 10)) /
                               2) +
                           210 * index.toDouble()
-                      : 510,
+                      : 300,
               top: horizontal ? 200 : 70 * index + 150,
               child: Container(
                 padding: const EdgeInsets.only(left: 50, top: 10),
@@ -636,7 +608,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
                         inputs[index] = value;
                         for (var option in options) {
                           if (value == option) {
-                            place(options.indexOf(option));
+                            place(answers.indexOf(option));
                           }
                         }
                       }
@@ -682,7 +654,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: const EdgeInsets.only(bottom: 25),
+              padding: const EdgeInsets.only(bottom: 50),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(0, 23, 63, 1),
@@ -693,7 +665,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
                     submitButton();
                   });
                 },
-                child: Text('Submit', style: TextStyle(fontSize: 80)),
+                child: Text('Submit', style: TextStyle(fontSize: 50)),
               ),
             ),
           ),
@@ -717,7 +689,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
                     }
                   });
                 },
-                child: Text('Next', style: TextStyle(fontSize: 50)),
+                child: Text('Next', style: TextStyle(fontSize: 35)),
               ),
             ),
           ),
