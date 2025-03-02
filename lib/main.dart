@@ -456,10 +456,10 @@ List<Offset> setupPositions(List<String> problem) {
   int currentX = 50;
 
   for (int i = 0; i < problem.length; i++) {
-    positions.add(Offset(currentX.toDouble(), 500));
-    currentX += problem[i].length * 25;
+    positions.add(Offset(currentX.toDouble(), 700));
+    currentX += problem[i].length * 13 + 10;
   }
-  print(currentX);
+
   double offset = ((1825 - currentX + 50) / 2);
   for (int i = 0; i < positions.length; i++) {
     positions[i] += Offset(offset, 0);
@@ -486,18 +486,31 @@ List<String> setupInputs(List<String> problem) {
 }
 
 List<dynamic> setupMain() {
-  List<String> problem = readFile(File('lib/print.txt'));
+  List<String> problem = readFile(File(file));
 
   String question = problem[0];
   problem.removeAt(0);
-  List<String> options = problem;
 
-  List<Offset> positions = setupPositions(problem);
-  List<Offset> originalPositions = setupPositions(problem);
+  String isHorizontal = problem[0];
+  problem.removeAt(0);
+  if (isHorizontal == "true") {
+    horizontal = true;
+  }
+  else {
+    horizontal = false;
+  }
+
+  List<String> options = List<String>.from(problem);
+  options.shuffle();
+  List<String>originalOptions = List<String>.from(options);
+  print(options);
+
   List<bool> correct = setupCorrect(problem);
   int numBoxes = problem.length;
   List<String> inputs = setupInputs(problem);
-  List<String> answers = List<String>.from(options);
+  List<String> answers = List<String>.from(problem);
+  List<Offset> positions = setupPositions(options);
+  List<Offset> originalPositions = List<Offset>.from(positions);
 
   return [
     question,
@@ -508,6 +521,7 @@ List<dynamic> setupMain() {
     numBoxes,
     inputs,
     answers,
+    originalOptions,
   ];
 }
 
@@ -523,8 +537,11 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
   late int numBoxes = values[5];
   late List<dynamic> inputs = values[6];
   late List<String> answers = values[7];
+  late List<String> originalOptions = values[8];
   bool first = true;
   bool finished = false;
+
+  
 
   void place(int index) {
     options[index] = "";
@@ -536,6 +553,9 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
   }
 
   void submitButton() {
+    // print(options);
+    // print(inputs);
+    // print(answers);
     for (int i = 0; i < numBoxes; i++) {
       if (inputs[i] == answers[i]) {
         correct[i] = true;
@@ -543,6 +563,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
         replaceOption(i, answers[i]);
       }
     }
+    // print(options);
 
     if (first) {
       first = false;
@@ -551,6 +572,23 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
     if (!correct.contains(false)) {
       finished = true;
     }
+
+    List<String> other = [];
+    for (int i = 0; i < originalOptions.length; i++) {other.add("");}
+    for (String item in originalOptions) {
+      if (options.contains(item)) {
+        other[originalOptions.indexOf(item)] = item;
+        print(other);
+      }
+    }
+    options = List<String>.from(other);
+
+    for (String item in options) {
+      if (item == "") {
+        positions[options.indexOf(item)] = Offset(100000000, 1000000);
+      }
+    }
+
   }
 
   @override
@@ -598,7 +636,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
                         inputs[index] = value;
                         for (var option in options) {
                           if (value == option) {
-                            place(answers.indexOf(option));
+                            place(options.indexOf(option));
                           }
                         }
                       }
@@ -644,7 +682,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: const EdgeInsets.only(bottom: 100),
+              padding: const EdgeInsets.only(bottom: 25),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromRGBO(0, 23, 63, 1),
@@ -731,7 +769,7 @@ class DraggableNumber extends StatelessWidget {
           child: Text(
             number.toString(),
             style: TextStyle(
-              fontSize: 48,
+              fontSize: 24,
               fontWeight: FontWeight.bold,
               color: const Color.fromRGBO(255, 255, 255, 1),
             ),
@@ -749,7 +787,7 @@ class DraggableNumber extends StatelessWidget {
         child: Text(
           number.toString(),
           style: TextStyle(
-            fontSize: 48,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             color: const Color.fromRGBO(255, 255, 255, 1),
           ),
