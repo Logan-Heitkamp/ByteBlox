@@ -1,0 +1,21 @@
+The Boolean expressions we learned in the beginning of this section work for many scenarios, but sometimes we need more specific conditions. There are two Boolean operators that are commonly used to create more specific expressions.
+
+And operator and - Both sides of the expression must be true for the result to be true.
+Or operator or - At least one side of the expression must be true for the result to be true.
+
+Think of the and operator as the strict operator between the two, and the or operator as the more relaxed operator
+
+#Examples:
+
+And (and)	Result
+100 == 100 and "anthony" == "anthony"	True
+100 == 99 and "anthony" == "anthony"	False
+"abc" == "abc" and "ABC" == "abc"	False
+10 > 100 and 90 < 10	                False
+
+
+Or (or)	Result
+100 == 100 or "anthony" == "anthony"	True
+100 == 99 or "anthony" == "anthony"	True
+"abc" == "abc" or "ABC" == "abc"	True
+10 > 100 or 90 < 10	                False

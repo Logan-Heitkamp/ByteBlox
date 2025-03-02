@@ -1,0 +1,8 @@
+It is not uncommon for a program to run a set of instructions repeatedly. Programming languages all provide some construct for repeatedly executing a set of statements. These are known as loops.
+
+For loops will run until a condition is eventually reached as seen below.
+
+#Example:
+for number in range(5):
+    print(number)
+

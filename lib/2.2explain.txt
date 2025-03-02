@@ -1,0 +1,12 @@
+The most basic selection statement is the if statement. An if statement allows your program to check a condition and decide whether or not to execute a block of code based on whether that condition is true or false. If the condition is true, the code inside the block runs. If the condition is false, the code is skipped entirely.
+
+#Example:
+number = 100
+
+if number == 100:
+    print("Code inside this block runs because the condition is true.")
+
+
+#Output:
+Code inside this block runs because the condition is true.
+

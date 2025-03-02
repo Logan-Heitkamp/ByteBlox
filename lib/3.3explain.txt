@@ -1,0 +1,12 @@
+Although while loops are capable of iterating through lists, there are other JavaScript constructs that make the process easier. For example, there is a specific kind of loop called a for loop whose purpose is to iterate, or loop, through elements in a collection.
+
+#Example:
+fruits = ['apples', 'bananas', 'cherries', 'dates']
+for fruit in fruits:
+    print(fruit)
+
+#Output:
+apples
+bananas
+cherries
+dates

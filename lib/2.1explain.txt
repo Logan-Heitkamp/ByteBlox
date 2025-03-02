@@ -1,0 +1,11 @@
+What is a Boolean?
+In Python, the bool data type is used to store values that can be either True or False. This makes it perfect for logical expressions, which are questions or conditions that the computer can evaluate.
+
+#Example:
+
+100 == 100	True
+100 == 99	False
+"abc" == "abc"	True
+"ABC" == "abc"	False
+True == True	True
+True == False	False

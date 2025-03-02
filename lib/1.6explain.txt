@@ -1,0 +1,14 @@
+In this lesson, we’re going to learn how to get input from the user using the input() function. With this function, users can interact with the program by typing into the console.
+
+input() is a function that outputs a message, often referred to as a prompt, pauses the program and waits for the user to type something in the console. When the user presses Enter, the input they typed is returned as a string. When a function does its job, it often gives back a result. This result is called the return value. The return value may be saved to a variable or used in some other expression.
+
+#Example:
+favorite_color = input("Enter your favorite color: ")
+print("Your favorite color is ", favorite_color)
+
+#Output:
+Enter your favorite color: 
+red
+Your favorite color is red
+
+

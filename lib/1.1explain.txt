@@ -1,0 +1,7 @@
+The print() function is a fundamental concept in programming. Functions perform specific actions, and in this case, print() outputs a message to the user via the console.
+
+# Example:
+print("Hello, world!")
+
+# Output:
+Hello, world!

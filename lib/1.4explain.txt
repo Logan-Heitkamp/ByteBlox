@@ -1,0 +1,19 @@
+Variables allow us to store data during our program’s execution. You use the equal sign (=) to assign a value to a variable. Here, you can both declare and assign a value in one line, which is known as initialization. Python handles data types like strings, integers, and floats seamlessly. Python uses dynamic typing, which means the data type a variable stores can change during runtime.
+
+#Example:
+number1 = 10
+number2 = 400
+sum = number1 + number2
+print(f"The sum is {sum}")
+
+#Output:
+The sum is 410
+
+
+Variable Scope
+Variable scope refers to where a variable can be accessed in your code. For example, the program below will raise an error because number1 must be declared before it can be used.
+
+# Error
+print(number1)
+number1 = 5
+

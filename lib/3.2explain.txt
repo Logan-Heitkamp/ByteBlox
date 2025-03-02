@@ -1,0 +1,22 @@
+We can use loops to iterate through elements of an list. The key is to access each item, one at a time. We do this by tracking what index we are currently at using a number variable. A common convention is to use a variable named i to track the index.
+
+#Example:
+print("--- Sodas App ---")
+
+soda_list = []
+soda_number = 1
+
+# Let user add 5 sodas to the list
+while soda_number <= 5:
+    soda_list.append(input("Add a soda to your list: "))
+    soda_number += 1
+
+i = 0 # Use i to access the list indexes dynamically
+
+# Show sodas in a list
+print("\nHere are your sodas:")
+
+# len(soda_list) returns the number of elements in the list
+while i < len(soda_list):
+    print(f"- {soda_list[i]}")
+    i += 1

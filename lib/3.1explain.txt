@@ -1,0 +1,14 @@
+Something that can store many items in a collection are called data structures. One of the fundamental data structures is the list.
+
+Lists can store multiple values in a single structure.
+Items in a list are referred to as elements.
+Elements of a list are retrieved by referencing their position, or their order in the list.
+
+#Example:
+wallet1 = ["Johnny", 1000]
+wallet2 = ["Francis", 2.55]
+wallet3 = ["Adam", -10]
+
+print(f"{wallet1[0]}'s bank balance: ${wallet1[1]}")
+print(f"{wallet2[0]}'s bank balance: ${wallet2[1]}")
+print(f"{wallet3[0]}'s bank balance: ${wallet3[1]}")

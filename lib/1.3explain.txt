@@ -1,0 +1,17 @@
+In the previous activity, we output math expressions separately from strings. While this works, it may not always look neat or readable. In programming, we format strings to create more complex and user-friendly text outputs. In Python, there are two common ways to format strings: passing multiple arguments to print() and string interpolation.
+
+Passing multiple arguments means providing different pieces of data, separated by commas, within the print() function. Each argument is printed in sequence, with spaces automatically added between them.
+
+#Example
+print("My age in months is", 30 * 12)
+
+#Output
+My age in months is 360
+
+A more modern and flexible way to format strings is to use string interpolation. This method allows you to embed expressions directly within a string. To use it, you prefix the string with the letter f and place any code or expressions inside curly braces { } to have them evaluated and included in the output.
+
+#Example
+print(f"My age in months is {30 * 12}.")
+
+#Output
+My age in months is 360.

@@ -1,0 +1,14 @@
+It is not uncommon for a program to run a set of instructions repeatedly. Programming languages all provide some construct for repeatedly executing a set of statements. These are known as loops.
+
+There are a few different ways to repeat code. For Python developers, the first construct to learn is known as the while loop.
+
+While loops look similar to if statements in that they have a keyword, a condition, and an associated code block. However, a while loop while repeatedly execute as long as the specified condition is true. That means somewhere in the loop, there needs to be a statement that will change the condition to evaluate to false.
+
+
+#Example:
+number = 10
+
+# Keep executing loop while number is greater than 0
+while number > 0:
+    print(f"Number is {number}")
+    number = number - 1

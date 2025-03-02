@@ -1,0 +1,34 @@
+In Python, we don’t just use math to crunch numbers; we also use it to display results to users. The print() function helps us with this—it can output text messages, numbers, and the results of math expressions.
+
+Integers and Floats
+
+Python, like many other programming languages, differentiates between whole numbers and decimal numbers. Whole numbers are called integers, while decimal numbers are referred to as floats (or floating-point numbers). This distinction is crucial for handling arithmetic operations accurately.
+
+Math Operators
+
++ Addition: Adds two numbers together.
+- Subtraction: Subtracts one number from another.
+* Multiplication: Multiplies two numbers.
+/ Division: Divides one number by another and returns the quotient as a decimal.
+% Modulus (aka mod): Returns the remainder after division.
+
+Examples:
+
+# Multiplication
+print("I'm 30 years old. In months, that's: ") # Replace 30 with your age
+print(30 * 12) # Replace 30 with your age
+print()
+
+# Output
+I'm 30 years old. In months, that's: 360
+
+
+
+# Remainder using the modulus, or mod, operator
+print("After dividing $100 among 6 people, the leftover cents are:")
+print(100 % 6)
+print()
+
+#Output
+After dividing $100 among 6 people, the leftover cents are: 4
+

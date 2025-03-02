@@ -1,0 +1,9 @@
+One of the most powerful things about variables is that they don’t have to stay the same throughout a program. We can change the value of a variable after it’s been initialized.
+
+#Example:
+health = 100
+health = health - 10
+print(f"Your health is: {health}")
+
+#Output:
+90

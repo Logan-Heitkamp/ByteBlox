@@ -1,0 +1,14 @@
+Another selection statement is the if/else statement. An if/else statement allows your program to check a condition and decide whether or not to execute a block of code based on whether that condition is true or false. If the condition is true, the code inside the block runs. If the condition is false, the code then moves to the next else statement and tested if the Boolean is true or false.
+
+#Example:
+number = 99
+
+if number == 100:
+    print("Code inside this block runs because the condition is true.")
+elif number == 99:
+    print("The else statement ran")
+
+
+#Output:
+The else statement ran
+
