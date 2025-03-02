@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-String file = 'lib/print.txt';
+var explination = 'lib/print.txt';
+var file = 'lib/print.txt';
+String explain = 'idk';
 void main() {
   runApp(DraggableNumberApp());
 }
@@ -16,7 +18,8 @@ class DraggableNumberApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomeScreen(),
-        '/second': (context) => DraggableNumberScreen(),
+        '/second': (context) => ExplinationPage(),
+        '/third': (context) => DraggableNumberScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
@@ -28,11 +31,17 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen: Python Lessons'),
+        title: Text('Home: Python Lessons'),
       ),
       body: Stack(
         children: [
-          //Container(color: const Color.fromARGB(255, 53, 120, 58), width: 100, height: 100),
+          Positioned(
+          left: 100,
+          top: 0,
+          child: Text('Introduction', style: TextStyle(
+              fontSize: 24.0,),
+        ),
+        ),
           Positioned(
           left: 100,
           top: 50,
@@ -40,7 +49,9 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
             file = 'lib/1.1';
+            explain = readExplination(File(explination));
           },
           child: Text('1.1 Hello World'),
         ),
@@ -52,9 +63,11 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
             file = 'lib/1.2';
+            explain = readExplination(File(explination));
           },
-          child: Text('1.2 The Print Statement'),
+          child: Text('1.2 Arithmetic'),
         ),
         ),
         Positioned(
@@ -64,13 +77,222 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             // Navigate to the second screen when the button is pressed
             Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
             file = 'lib/1.3';
+            explain = readExplination(File(explination));
           },
-          child: Text('1.3 Variables'),
+          child: Text('1.3 String Formating'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 200,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/1.4';
+            explain = readExplination(File(explination));
+          },
+          child: Text('1.4 Variables'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 250,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/1.5';
+            explain = readExplination(File(explination));
+          },
+          child: Text('1.5 Manipulating Variables'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 300,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/1.6';
+            explain = readExplination(File(explination));
+          },
+          child: Text('1.6 Input Statments'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 350,
+          child: Text('If Statements and Loops', style: TextStyle(
+              fontSize: 24.0,),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 400,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.1';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.1 Boolean Operatiors'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 450,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.2';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.2 if/else Statments'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 500,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.3';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.3 elif Statments'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 550,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.4';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.4 Compound Boolean'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 600,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.5';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.5 While Loops'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 650,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/2.6';
+            explain = readExplination(File(explination));
+          },
+          child: Text('2.6 For Loops'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 700,
+          child: Text('Lists', style: TextStyle(
+              fontSize: 24.0,),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 750,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/3.1';
+            explain = readExplination(File(explination));
+          },
+          child: Text('3.1 List'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 800,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/3.2';
+            explain = readExplination(File(explination));
+          },
+          child: Text('3.2 Lists and While Loops'),
+        ),
+        ),
+        Positioned(
+          left: 100,
+          top: 850,
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the second screen when the button is pressed
+            Navigator.pushNamed(context, '/second');
+            explination = 'lib/idk';
+            file = 'lib/3.3';
+            explain = readExplination(File(explination));
+          },
+          child: Text('3.3 Lists and For Loops'),
         ),
         ),
           ],
       ),
+    );
+  }
+}
+
+class ExplinationPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Lesson'),
+      ),
+      body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+            Text(explain),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/third');
+              },
+              child: Text('Click to Continue'),
+              )
+            ]
+      ),
+    ),
     );
   }
 }
@@ -125,7 +347,7 @@ class _DraggableNumberScreenState extends State<DraggableNumberScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text("Drag the Correct Answer")),
+      appBar: AppBar(title: Text("Quiz")),
       body: Stack(
         children: [
           // Create question
@@ -267,4 +489,9 @@ List<String> readFile(file) {
   //Given file path, ruturns each line of the file as an object in a list
   List<String> lines = file.readAsLinesSync();
   return lines;
+}
+
+String readExplination(file) {
+  String text = file.readAsStringSync();
+  return text;
 }
